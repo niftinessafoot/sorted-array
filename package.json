@@ -12,7 +12,8 @@
     "test:coverage": "jest --coverage"
   },
   "files": [
-    "dist"
+    "dist",
+    "!dist/**/*.spec.*"
   ],
   "repository": {
     "type": "git",
