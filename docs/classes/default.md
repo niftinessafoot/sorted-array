@@ -1,4 +1,4 @@
-[@afoot/sorted-array](../README.md) / [Exports](../modules.md) / default
+[@afoot/sorted-array](../index.md) / [Exports](../modules.md) / default
 
 # Class: default
 

@@ -1,4 +1,4 @@
-[@afoot/sorted-array](README.md) / Exports
+[@afoot/sorted-array](index.md) / Exports
 
 # @afoot/sorted-array
 

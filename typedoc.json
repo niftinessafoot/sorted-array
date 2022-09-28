@@ -1,6 +1,7 @@
 {
   "entryPoints": ["src/index.ts"],
+  "githubPages": false,
   "plugin": ["typedoc-plugin-markdown"],
-  "out": "docs",
-  "readme": "./README.md"
+  "out": "docs/",
+  "entryDocument": "index.md"
 }
