@@ -7,12 +7,13 @@
   ],
   "parser": "@typescript-eslint/parser",
   "parserOptions": { "sourceType": "module" },
-  "plugins": ["@typescript-eslint"],
+  "plugins": ["@typescript-eslint", "eslint-plugin-tsdoc"],
   "env": {
     "browser": true,
     "node": true,
     "es2022": true,
     "jest": true
   },
-  "globals": { "define": "readonly" }
+  "globals": { "define": "readonly" },
+  "rules": { "tsdoc/syntax": "warn" }
 }

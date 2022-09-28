@@ -6,7 +6,7 @@ A configurable JavaScript module to maintain a sorted, private array.
 
 _Sorted Array_ takes either an array of existing data or a config object.
 
-#### Array Example
+### Array Example
 
 ```js
 import SortedArray from '@afoot/sorted-array/';
@@ -17,7 +17,7 @@ console.log(sortedArray.list);
 // returns [2,3,5]
 ```
 
-#### Config Object Example
+### Config Object Example
 
 ```js
 import SortedArray from '@afoot/sorted-array/';
@@ -94,3 +94,9 @@ sortedArray.delete(1);
 console.log(sortedArray.list);
 // returns ['banana','pineapple']
 ```
+
+## credits
+
+made with ❤️ and ☕️ by
+
+![Niftiness Afoot!](https://gist.githubusercontent.com/niftinessafoot/2dba588395cb557293d5f09aebcd2ab0/raw/770293c76bead4f0986ff959f3ea8880017d92c0/bot.svg?sanitize=true) Matthew Smith [@niftinessafoot](https://github.com/niftinessafoot)
