@@ -1,6 +1,6 @@
 {
   "name": "@afoot/sorted-array",
-  "version": "0.1.1",
+  "version": "1.0.0",
   "description": "A JavaScript module to maintain a sorted, private array.",
   "main": "./dist/index.js",
   "types": "./dist/types/index.d.ts",
@@ -9,13 +9,13 @@
     "types": "tsc",
     "prepare": "npm run clean && npm run build",
     "clean": "rm -rf dist/*",
+    "clean:docs": "rm -rf docs/*",
     "docs": "typedoc",
     "test": "jest",
     "test:coverage": "jest --coverage"
   },
   "files": [
-    "dist",
-    "!dist/**/*.spec.*"
+    "dist/"
   ],
   "repository": {
     "type": "git",

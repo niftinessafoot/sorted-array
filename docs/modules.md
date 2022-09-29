@@ -6,7 +6,11 @@
 
 ### Classes
 
-- [default](classes/default.md)
+- [SortedArray](classes/SortedArray.md)
+
+### Interfaces
+
+- [SortedArrayConfig](interfaces/SortedArrayConfig.md)
 
 ### Type Aliases
 
@@ -14,6 +18,8 @@
 - [DataObject](modules.md#dataobject)
 - [DataSet](modules.md#dataset)
 - [SortCallback](modules.md#sortcallback)
+- [SortedArrayParams](modules.md#sortedarrayparams)
+- [TypeArray](modules.md#typearray)
 
 ## Type Aliases
 
@@ -21,9 +27,11 @@
 
 Ƭ **DataItem**: `number` \| `string` \| [`DataObject`](modules.md#dataobject) \| `unknown`[]
 
+Base units of info that can be added to a sorted array.
+
 #### Defined in
 
-index.ts:4
+index.ts:12
 
 ___
 
@@ -31,19 +39,21 @@ ___
 
 Ƭ **DataObject**: `Record`<`string` \| `number`, `unknown`\>
 
+Any Object Literal. May convert `unknown` to `any`.
+
 #### Defined in
 
-index.ts:3
+index.ts:10
 
 ___
 
 ### DataSet
 
-Ƭ **DataSet**: `TypeArray`<[`DataItem`](modules.md#dataitem)\>
+Ƭ **DataSet**: [`TypeArray`](modules.md#typearray)<[`DataItem`](modules.md#dataitem)\>
 
 #### Defined in
 
-index.ts:6
+index.ts:8
 
 ___
 
@@ -68,4 +78,30 @@ ___
 
 #### Defined in
 
-index.ts:5
+index.ts:13
+
+___
+
+### SortedArrayParams
+
+Ƭ **SortedArrayParams**: [`DataSet`](modules.md#dataset) \| [`SortedArrayConfig`](interfaces/SortedArrayConfig.md)
+
+#### Defined in
+
+index.ts:1
+
+___
+
+### TypeArray
+
+Ƭ **TypeArray**<`Type`\>: `Type` extends `unknown` ? `Type`[] : `never`
+
+#### Type parameters
+
+| Name |
+| :------ |
+| `Type` |
+
+#### Defined in
+
+index.ts:7

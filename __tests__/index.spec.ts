@@ -1,5 +1,5 @@
-import SortedArray from './index';
-import { DataObject, DataSet, SortCallback } from './index';
+import { SortedArray } from '../src/index';
+import type { DataObject, DataSet, SortCallback } from '../src/index';
 
 describe('Sorted Array:', () => {
   let data: DataSet;
@@ -18,9 +18,9 @@ describe('Sorted Array:', () => {
 
     describe('Param: Array', () => {
       it('should return a sorted array with provided data', () => {
-        const { list } = new SortedArray(data);
+        const { log } = new SortedArray(data);
 
-        expect(list).toEqual(expectedOutput);
+        expect(log).toEqual(expectedOutput);
       });
     });
 
@@ -28,7 +28,7 @@ describe('Sorted Array:', () => {
       it('should return a sorted array with provided data', () => {
         const output = new SortedArray({ data });
 
-        expect(output.list).toEqual(expectedOutput);
+        expect(output.log).toEqual(expectedOutput);
       });
 
       it('should return a differently-sorted array when specifying a callback', () => {
@@ -53,9 +53,9 @@ describe('Sorted Array:', () => {
         };
         const output = new SortedArray({
           data,
-          sortCallback,
+          sortCallback: sortCallback as SortCallback,
         });
-        const { name } = output.list[0] as DataObject;
+        const { name } = output.log[0] as DataObject;
 
         expect(name).toEqual('Celery');
       });
@@ -67,7 +67,7 @@ describe('Sorted Array:', () => {
           sortCallback: sortCallback as SortCallback,
         });
 
-        expect(obj.list).toEqual(data);
+        expect(obj.log).toEqual(data);
       });
     });
 
@@ -75,7 +75,7 @@ describe('Sorted Array:', () => {
       it('should return an empty array when fed invalid data', () => {
         const str: unknown = 'BadString';
         const obj = new SortedArray(str as []);
-        const output = obj.list;
+        const output = obj.log;
 
         expect(output).toEqual([]);
       });
@@ -84,17 +84,26 @@ describe('Sorted Array:', () => {
 
   describe('Sorting', () => {
     it('should return a sorted array', () => {
-      const { list } = new SortedArray(data);
+      const { log } = new SortedArray(data);
 
-      expect(list).toEqual(expectedOutput);
+      expect(log).toEqual(expectedOutput);
     });
 
     it('should return items in the same order if equality', () => {
       data = [1, 2, 1];
       expectedOutput = [1, 1, 2];
-      const { list } = new SortedArray(data);
+      const { log } = new SortedArray(data);
 
-      expect(list).toEqual(expectedOutput);
+      expect(log).toEqual(expectedOutput);
+    });
+  });
+
+  describe('Data Getter:', () => {
+    it('should return sorted data', () => {
+      const arr = new SortedArray(data);
+      const output = arr.log;
+
+      expect(output).toEqual(expectedOutput);
     });
   });
 
@@ -105,15 +114,15 @@ describe('Sorted Array:', () => {
       const obj = new SortedArray();
       obj.add(addedItem);
 
-      expect(obj.list).toEqual([addedItem]);
+      expect(obj.log).toEqual([addedItem]);
     });
 
     it('should append to existing data', () => {
       const obj = new SortedArray(data);
-      obj.add(addedItem);
+      const output = obj.add(addedItem);
 
-      expect(obj.list).toHaveLength(4);
-      expect(obj.list[1]).toEqual(addedItem);
+      expect(output).toHaveLength(4);
+      expect(output[1]).toEqual(addedItem);
     });
   });
 
@@ -121,9 +130,9 @@ describe('Sorted Array:', () => {
     it('should remove specified index', () => {
       expectedOutput = [3, 19];
       const obj = new SortedArray(data);
-      obj.delete(1);
+      const output = obj.delete(1);
 
-      expect(obj.list).toEqual(expectedOutput);
+      expect(output).toEqual(expectedOutput);
     });
   });
 
@@ -133,9 +142,9 @@ describe('Sorted Array:', () => {
       const newItem = 24;
       const obj = new SortedArray(data);
 
-      obj.edit(1, newItem);
+      const output = obj.edit(1, newItem);
 
-      expect(obj.list).toEqual(expectedOutput);
+      expect(output).toEqual(expectedOutput);
     });
   });
 });

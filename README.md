@@ -49,52 +49,6 @@ console.log(sortedArray.list);
 
 ## Usage
 
-### Add New Array Elements
-
-```js
-import SortedArray from '@afoot/sorted-array/';
-
-const sortedArray = new SortedArray([5, 2]);
-
-// Add new array elements
-sortedArray.add(3);
-
-console.log(sortedArray.list);
-// returns [2,3,5]
-```
-
-### Edit Existing Array Elements
-
-```js
-import SortedArray from '@afoot/sorted-array/';
-
-const sortedArray = new SortedArray(['banana', 'pineapple', 'cheese']);
-
-console.log(sortedArray.list);
-// returns ['banana','cheese','pineapple']
-
-sortedArray.edit(1, 'apple');
-
-console.log(sortedArray.list);
-// returns ['apple','banana','pineapple']
-```
-
-### Remove Array Elements
-
-```js
-import SortedArray from '@afoot/sorted-array/';
-
-const sortedArray = new SortedArray(['banana', 'pineapple', 'cheese']);
-
-console.log(sortedArray.list);
-// returns ['banana','cheese','pineapple']
-
-sortedArray.delete(1);
-
-console.log(sortedArray.list);
-// returns ['banana','pineapple']
-```
-
 ## credits
 
 made with ❤️ and ☕️ by

@@ -8,9 +8,6 @@ interface SortedArrayConfig {
     sortCallback?: SortCallback;
     data?: DataSet;
 }
-/**
- * Maintains a sorted array of data.
- */
 declare class SortedArray {
     #private;
     /**
@@ -32,11 +29,6 @@ declare class SortedArray {
      * @param item - The data to replace the instance entry at that index.
      */
     edit(index: number, item: DataItem): void;
-    /**
-     * Delete an element from the data.
-     *
-     * @param index - The index of the sorted data to pull.
-     */
     delete(index: number): void;
     /**
      * @returns The sorted instance data.
