@@ -19,7 +19,7 @@ Seeded data.
 
 #### Defined in
 
-index.ts:19
+index.ts:25
 
 ___
 
@@ -31,4 +31,4 @@ The override sort method.
 
 #### Defined in
 
-index.ts:17
+index.ts:23

@@ -44,7 +44,7 @@ Define initial data, sort algo, and perform initial sort.
 
 #### Defined in
 
-index.ts:66
+index.ts:71
 
 ## Properties
 
@@ -56,7 +56,7 @@ Default settings.
 
 #### Defined in
 
-index.ts:31
+index.ts:40
 
 ___
 
@@ -68,7 +68,7 @@ The instance state. The whole reason we’re here.
 
 #### Defined in
 
-index.ts:27
+index.ts:36
 
 ___
 
@@ -80,7 +80,7 @@ The sorting algorithm used in this instance.
 
 #### Defined in
 
-index.ts:29
+index.ts:38
 
 ## Accessors
 
@@ -105,7 +105,7 @@ The sorted instance data.
 
 #### Defined in
 
-index.ts:163
+index.ts:166
 
 ## Methods
 
@@ -113,24 +113,22 @@ index.ts:163
 
 ▸ `Private` **#fnSortDefault**(`a`, `b`): `number`
 
-Default sorting algorithm. Straight comparison of values.
+{@inheritDoc SortCallback}
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `a` | [`DataItem`](../modules.md#dataitem) | Comparator to sort against. |
-| `b` | [`DataItem`](../modules.md#dataitem) | Comparator to sort against. |
+| Name | Type |
+| :------ | :------ |
+| `a` | [`DataItem`](../modules.md#dataitem) |
+| `b` | [`DataItem`](../modules.md#dataitem) |
 
 #### Returns
 
 `number`
 
-One of `[0.1,-1]` to determine sort order.
-
 #### Defined in
 
-index.ts:44
+index.ts:49
 
 ___
 
@@ -148,7 +146,7 @@ Sorted Data [DataSet](../modules.md#dataset)
 
 #### Defined in
 
-index.ts:57
+index.ts:62
 
 ___
 
@@ -162,8 +160,7 @@ Add a new element to the instance data.
 
 ```ts
 const sortedArray = new SortedArray([5, 2]);
-const output = sortedArray.add(3);
-console.log(output); // returns [2,3,5]
+sortedArray.add(3); // returns [2,3,5]
 ```
 
 #### Parameters
@@ -180,7 +177,7 @@ Sorted Array [DataSet](../modules.md#dataset)
 
 #### Defined in
 
-index.ts:98
+index.ts:102
 
 ___
 
@@ -192,9 +189,7 @@ Delete an element from the instance data.
 
 **`Remarks`**
 
-This is a departure from the return value of `Array.prototype.splice()`,
-which returns an array of the _deleted_ elements. Here, we keep to the
-pattern and return the _new_ array.
+This is a departure from the return value of `Array.prototype.splice()`, which returns an array of the _deleted_ elements. Here, we keep to the pattern and return the _new_ array.
 
 **`Example`**
 
@@ -217,7 +212,7 @@ Sorted Array [DataSet](../modules.md#dataset)
 
 #### Defined in
 
-index.ts:145
+index.ts:148
 
 ___
 
@@ -250,4 +245,4 @@ Sorted array of [DataItem](../modules.md#dataitem)
 
 #### Defined in
 
-index.ts:121
+index.ts:126

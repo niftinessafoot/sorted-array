@@ -65,20 +65,24 @@ ___
 
 ▸ (`a`, `b`): `number`
 
+Sorting algorithm.
+
 ##### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `a` | [`DataItem`](modules.md#dataitem) |
-| `b` | [`DataItem`](modules.md#dataitem) |
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `a` | [`DataItem`](modules.md#dataitem) | Comparator to sort against. |
+| `b` | [`DataItem`](modules.md#dataitem) | Comparator to sort against. |
 
 ##### Returns
 
 `number`
 
+One of `[0.1,-1]` to determine sort order.
+
 #### Defined in
 
-index.ts:13
+index.ts:19
 
 ___
 
