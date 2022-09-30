@@ -31,19 +31,19 @@ Base units of info that can be added to a sorted array.
 
 #### Defined in
 
-index.ts:12
+index.ts:13
 
 ___
 
 ### DataObject
 
-Ƭ **DataObject**: `Record`<`string` \| `number`, `unknown`\>
+Ƭ **DataObject**: `Record`<`string` \| `number`, `any`\>
 
-Any Object Literal. May convert `unknown` to `any`.
+Any Object Literal.
 
 #### Defined in
 
-index.ts:10
+index.ts:11
 
 ___
 
@@ -78,11 +78,11 @@ Sorting algorithm.
 
 `number`
 
-One of `[0.1,-1]` to determine sort order.
+One of `[0,1,-1]` to determine sort order.
 
 #### Defined in
 
-index.ts:19
+index.ts:20
 
 ___
 
@@ -99,6 +99,10 @@ ___
 ### TypeArray
 
 Ƭ **TypeArray**<`Type`\>: `Type` extends `unknown` ? `Type`[] : `never`
+
+Generates [DataSet](modules.md#dataset) by iterating over union types of [DataItem](modules.md#dataitem), applying array type to each.
+
+TypeScript will not allow you to mix types _in_ the array.
 
 #### Type parameters
 

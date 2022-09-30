@@ -2,8 +2,6 @@
 
 # Class: SortedArray
 
-Maintains a sorted array of data.
-
 ## Table of contents
 
 ### Constructors
@@ -44,7 +42,7 @@ Define initial data, sort algo, and perform initial sort.
 
 #### Defined in
 
-index.ts:71
+index.ts:77
 
 ## Properties
 
@@ -56,7 +54,7 @@ Default settings.
 
 #### Defined in
 
-index.ts:40
+index.ts:43
 
 ___
 
@@ -68,7 +66,7 @@ The instance state. The whole reason we’re here.
 
 #### Defined in
 
-index.ts:36
+index.ts:39
 
 ___
 
@@ -80,7 +78,7 @@ The sorting algorithm used in this instance.
 
 #### Defined in
 
-index.ts:38
+index.ts:41
 
 ## Accessors
 
@@ -105,7 +103,7 @@ The sorted instance data.
 
 #### Defined in
 
-index.ts:166
+index.ts:172
 
 ## Methods
 
@@ -113,22 +111,24 @@ index.ts:166
 
 ▸ `Private` **#fnSortDefault**(`a`, `b`): `number`
 
-{@inheritDoc SortCallback}
+Sorting algorithm.
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `a` | [`DataItem`](../modules.md#dataitem) |
-| `b` | [`DataItem`](../modules.md#dataitem) |
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `a` | [`DataItem`](../modules.md#dataitem) | Comparator to sort against. |
+| `b` | [`DataItem`](../modules.md#dataitem) | Comparator to sort against. |
 
 #### Returns
 
 `number`
 
+One of `[0.1,-1]` to determine sort order.
+
 #### Defined in
 
-index.ts:49
+index.ts:55
 
 ___
 
@@ -146,7 +146,7 @@ Sorted Data [DataSet](../modules.md#dataset)
 
 #### Defined in
 
-index.ts:62
+index.ts:68
 
 ___
 
@@ -154,7 +154,7 @@ ___
 
 ▸ **add**(`item`): [`DataSet`](../modules.md#dataset)
 
-Add a new element to the instance data.
+Add a new element to [SortedArray.#data](../modules.md).
 
 **`Example`**
 
@@ -177,7 +177,7 @@ Sorted Array [DataSet](../modules.md#dataset)
 
 #### Defined in
 
-index.ts:102
+index.ts:108
 
 ___
 
@@ -212,7 +212,7 @@ Sorted Array [DataSet](../modules.md#dataset)
 
 #### Defined in
 
-index.ts:148
+index.ts:154
 
 ___
 
@@ -220,7 +220,7 @@ ___
 
 ▸ **edit**(`index`, `item`): [`DataSet`](../modules.md#dataset)
 
-Modify an existing element in the instance data.
+Modify an existing element in [SortedArray.#data](../modules.md).
 
 **`Example`**
 
@@ -245,4 +245,4 @@ Sorted array of [DataItem](../modules.md#dataitem)
 
 #### Defined in
 
-index.ts:126
+index.ts:132

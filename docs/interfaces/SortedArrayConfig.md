@@ -15,11 +15,11 @@
 
 • `Optional` **data**: [`DataSet`](../modules.md#dataset)
 
-Seeded data.
+Initialized data
 
 #### Defined in
 
-index.ts:25
+index.ts:26
 
 ___
 
@@ -27,8 +27,8 @@ ___
 
 • `Optional` **sortCallback**: [`SortCallback`](../modules.md#sortcallback)
 
-The override sort method.
+Sort method. Overrides [SortedArray.#fnSortDefault](../modules.md)
 
 #### Defined in
 
-index.ts:23
+index.ts:24

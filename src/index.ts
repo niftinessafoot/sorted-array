@@ -1,32 +1,35 @@
 export type SortedArrayParams = DataSet | SortedArrayConfig;
 /**
- * Iterates over all iterations of {@link DataItem}, typing each to an array. TypeScript will not allow you to mix types _in_ the array.
+ * Generates {@link DataSet} by iterating over union types of {@link DataItem}, applying array type to each.
  *
- * @packageDocumentation
+ * TypeScript will not allow you to mix types _in_ the array.
  */
 export type TypeArray<Type> = Type extends unknown ? Type[] : never;
 export type DataSet = TypeArray<DataItem>;
-/** Any Object Literal. May convert `unknown` to `any`. */
-export type DataObject = Record<string | number, unknown>;
+/** Any Object Literal. */
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export type DataObject = Record<string | number, any>;
 /** Base units of info that can be added to a sorted array. */
 export type DataItem = number | string | DataObject | Array<unknown>;
 /**
  * Sorting algorithm.
  * @param a - Comparator to sort against.
  * @param b - Comparator to sort against.
- * @returns One of `[0.1,-1]` to determine sort order.
+ * @returns One of `[0,1,-1]` to determine sort order.
  */
 export type SortCallback = (a: DataItem, b: DataItem) => number;
 
 export interface SortedArrayConfig {
-  /** The override sort method.  */
+  /** Sort method. Overrides {@link SortedArray.#fnSortDefault}  */
   sortCallback?: SortCallback;
-  /** Seeded data. */
+  /** Initialized data */
   data?: DataSet;
 }
 
 /**
  * Maintains a sorted array of data.
+ *
+ * @packageDocumentation
  */
 export class SortedArray {
   // TODO: Add reset/replace functionality.
@@ -44,7 +47,10 @@ export class SortedArray {
   };
 
   /**
-   * {@inheritDoc SortCallback}
+   * Sorting algorithm.
+   * @param a - Comparator to sort against.
+   * @param b - Comparator to sort against.
+   * @returns One of `[0.1,-1]` to determine sort order.
    */
   #fnSortDefault(a: DataItem, b: DataItem): number {
     // TODO: Throw a warning if comparing non-primary objects.
@@ -86,7 +92,7 @@ export class SortedArray {
   }
 
   /**
-   * Add a new element to the instance data.
+   * Add a new element to {@link SortedArray.#data}.
    *
    * @param item - Input to append to the instance data.
    * @returns Sorted Array {@link DataSet}
@@ -108,7 +114,7 @@ export class SortedArray {
   }
 
   /**
-   * Modify an existing element in the instance data.
+   * Modify an existing element in {@link SortedArray.#data}.
    *
    * @param index - **Sorted** index of the array to update.
    * @param item - The data to replace the instance entry at that index.
