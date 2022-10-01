@@ -4,7 +4,7 @@ A configurable JavaScript module to maintain a sorted, private array.
 
 ## installation
 
-_Sorted Array_ can be used as an [https://www.npmjs.com/package/@afoot/sorted-array](npm package) or download the package and use it as an ESM module right in the browser.
+_Sorted Array_ can be used as an [npm package](https://www.npmjs.com/package/@afoot/sorted-array) or download the package and use it as an ESM module right in the browser.
 
 ## documentation
 
