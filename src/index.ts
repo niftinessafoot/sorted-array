@@ -1,10 +1,10 @@
-export type SortedArrayParams = DataSet | SortedArrayConfig;
 /**
  * Generates {@link DataSet} by iterating over union types of {@link DataItem}, applying array type to each.
  *
  * TypeScript will not allow you to mix types _in_ the array.
  */
 export type TypeArray<Type> = Type extends unknown ? Type[] : never;
+/** The module payload. */
 export type DataSet = TypeArray<DataItem>;
 /** Any Object Literal. */
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -18,7 +18,12 @@ export type DataItem = number | string | DataObject | Array<unknown>;
  * @returns One of `[0,1,-1]` to determine sort order.
  */
 export type SortCallback = (a: DataItem, b: DataItem) => number;
-
+/** Params passed into new instane.*/
+export type SortedArrayParams = DataSet | SortedArrayConfig;
+/**
+ * Config object used when instantiating a new instance.
+ * Passed into {@link SortedArrayParams}
+ */
 export interface SortedArrayConfig {
   /** Sort method. Overrides {@link SortedArray.#fnSortDefault}  */
   sortCallback?: SortCallback;
@@ -35,19 +40,20 @@ export class SortedArray {
   // TODO: Add reset/replace functionality.
   // TODO: Add sort algo setter/replacer.
 
-  /** The instance state. The whole reason we’re here.*/
+  /** Instance state. Source of truth for the module.*/
   #data: DataSet;
-  /** The sorting algorithm used in this instance. */
+  /** Overrides default sorting algorithm. */
   #sortCallback: SortCallback;
   /** Default settings. */
   #config: SortedArrayParams = {
+    /** @defaultValue Base data is empty array.*/
     data: [],
     /** @defaultValue Base algo if one isn’t provided. */
     sortCallback: this.#fnSortDefault,
   };
 
   /**
-   * Sorting algorithm.
+   * Built-in sorting algorithm.
    * @param a - Comparator to sort against.
    * @param b - Comparator to sort against.
    * @returns One of `[0.1,-1]` to determine sort order.

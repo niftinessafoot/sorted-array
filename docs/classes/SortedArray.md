@@ -42,7 +42,7 @@ Define initial data, sort algo, and perform initial sort.
 
 #### Defined in
 
-index.ts:77
+index.ts:83
 
 ## Properties
 
@@ -54,7 +54,7 @@ Default settings.
 
 #### Defined in
 
-index.ts:43
+index.ts:48
 
 ___
 
@@ -62,11 +62,11 @@ ___
 
 • `Private` **#data**: [`DataSet`](../modules.md#dataset)
 
-The instance state. The whole reason we’re here.
+Instance state. Source of truth for the module.
 
 #### Defined in
 
-index.ts:39
+index.ts:44
 
 ___
 
@@ -74,11 +74,11 @@ ___
 
 • `Private` **#sortCallback**: [`SortCallback`](../modules.md#sortcallback)
 
-The sorting algorithm used in this instance.
+Overrides default sorting algorithm.
 
 #### Defined in
 
-index.ts:41
+index.ts:46
 
 ## Accessors
 
@@ -103,7 +103,7 @@ The sorted instance data.
 
 #### Defined in
 
-index.ts:172
+index.ts:178
 
 ## Methods
 
@@ -111,7 +111,7 @@ index.ts:172
 
 ▸ `Private` **#fnSortDefault**(`a`, `b`): `number`
 
-Sorting algorithm.
+Built-in sorting algorithm.
 
 #### Parameters
 
@@ -128,7 +128,7 @@ One of `[0.1,-1]` to determine sort order.
 
 #### Defined in
 
-index.ts:55
+index.ts:61
 
 ___
 
@@ -146,7 +146,7 @@ Sorted Data [DataSet](../modules.md#dataset)
 
 #### Defined in
 
-index.ts:68
+index.ts:74
 
 ___
 
@@ -177,7 +177,7 @@ Sorted Array [DataSet](../modules.md#dataset)
 
 #### Defined in
 
-index.ts:108
+index.ts:114
 
 ___
 
@@ -212,7 +212,7 @@ Sorted Array [DataSet](../modules.md#dataset)
 
 #### Defined in
 
-index.ts:154
+index.ts:160
 
 ___
 
@@ -245,4 +245,4 @@ Sorted array of [DataItem](../modules.md#dataitem)
 
 #### Defined in
 
-index.ts:132
+index.ts:138

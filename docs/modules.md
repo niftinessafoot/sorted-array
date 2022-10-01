@@ -51,6 +51,8 @@ ___
 
 Ƭ **DataSet**: [`TypeArray`](modules.md#typearray)<[`DataItem`](modules.md#dataitem)\>
 
+The module payload.
+
 #### Defined in
 
 index.ts:8
@@ -90,9 +92,11 @@ ___
 
 Ƭ **SortedArrayParams**: [`DataSet`](modules.md#dataset) \| [`SortedArrayConfig`](interfaces/SortedArrayConfig.md)
 
+Params passed into new instane.
+
 #### Defined in
 
-index.ts:1
+index.ts:22
 
 ___
 
@@ -112,4 +116,4 @@ TypeScript will not allow you to mix types _in_ the array.
 
 #### Defined in
 
-index.ts:7
+index.ts:6

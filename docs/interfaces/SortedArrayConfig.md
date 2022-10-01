@@ -2,6 +2,9 @@
 
 # Interface: SortedArrayConfig
 
+Config object used when instantiating a new instance.
+Passed into [SortedArrayParams](../modules.md#sortedarrayparams)
+
 ## Table of contents
 
 ### Properties
@@ -19,7 +22,7 @@ Initialized data
 
 #### Defined in
 
-index.ts:26
+index.ts:31
 
 ___
 
@@ -31,4 +34,4 @@ Sort method. Overrides [SortedArray.#fnSortDefault](../modules.md)
 
 #### Defined in
 
-index.ts:24
+index.ts:29
