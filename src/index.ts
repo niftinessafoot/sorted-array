@@ -1,50 +1,84 @@
-type SortedArrayParams = DataSet | SortedArrayConfig;
-type TypeArray<Type> = Type extends unknown ? Type[] : never;
-export type DataObject = Record<string | number, unknown>;
-export type DataItem = number | string | DataObject | Array<unknown>;
-export type SortCallback = (a: DataItem, b: DataItem) => number;
+/**
+ * Generates {@link DataSet} by iterating over union types of {@link DataItem}, applying array type to each.
+ *
+ * TypeScript will not allow you to mix types _in_ the array.
+ */
+export type TypeArray<Type> = Type extends unknown ? Type[] : never;
+/** The module payload. */
 export type DataSet = TypeArray<DataItem>;
-
-interface SortedArrayConfig {
+/** Any Object Literal. */
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export type DataObject = Record<string | number, any>;
+/** Base units of info that can be added to a sorted array. */
+export type DataItem = number | string | DataObject | Array<unknown>;
+/**
+ * Sorting algorithm.
+ * @param a - Comparator to sort against.
+ * @param b - Comparator to sort against.
+ * @returns One of `[0,1,-1]` to determine sort order.
+ */
+export type SortCallback = (a: DataItem, b: DataItem) => number;
+/** Params passed into new instane.*/
+export type SortedArrayParams = DataSet | SortedArrayConfig;
+/**
+ * Config object used when instantiating a new instance.
+ * Passed into {@link SortedArrayParams}
+ */
+export interface SortedArrayConfig {
+  /** Sort method. Overrides {@link SortedArray.#fnSortDefault}  */
   sortCallback?: SortCallback;
+  /** Initialized data */
   data?: DataSet;
 }
 
 /**
  * Maintains a sorted array of data.
+ *
+ * @packageDocumentation
  */
-class SortedArray {
+export class SortedArray {
+  // TODO: Add reset/replace functionality.
+  // TODO: Add sort algo setter/replacer.
+
+  /** Instance state. Source of truth for the module.*/
   #data: DataSet;
+  /** Overrides default sorting algorithm. */
   #sortCallback: SortCallback;
+  /** Default settings. */
   #config: SortedArrayParams = {
+    /** @defaultValue Base data is empty array.*/
     data: [],
+    /** @defaultValue Base algo if one isn’t provided. */
     sortCallback: this.#fnSortDefault,
   };
 
   /**
-   * Default sorting algo. Straight comparison of values.
-   *
+   * Built-in sorting algorithm.
    * @param a - Comparator to sort against.
    * @param b - Comparator to sort against.
-   * @returns One of [0.1,-1] to determine sort order.
+   * @returns One of `[0.1,-1]` to determine sort order.
    */
   #fnSortDefault(a: DataItem, b: DataItem): number {
+    // TODO: Throw a warning if comparing non-primary objects.
     const isEqual = a === b;
 
     return isEqual ? 0 : a > b ? 1 : -1;
   }
 
   /**
-   * Runs sortCallback on the instance data.
+   * Applies {@link SortCallback} on the instance data.
+   *
+   * @returns Sorted Data {@link DataSet}
+   * @internal
    */
-  #sort(): void {
-    this.#data.sort(this.#sortCallback);
+  #sort(): DataSet {
+    return this.#data.sort(this.#sortCallback);
   }
 
   /**
    * Define initial data, sort algo, and perform initial sort.
    *
-   * @param params - An intitial data array or a config object.
+   * @param params - An intitial {@link DataSet | data array} or a {@link SortedArrayConfig | config object}.
    */
   constructor(params: SortedArrayParams = {}) {
     if (Array.isArray(params)) {
@@ -64,43 +98,84 @@ class SortedArray {
   }
 
   /**
-   * Add a new element to the instance data.
+   * Add a new element to {@link SortedArray.#data}.
    *
    * @param item - Input to append to the instance data.
+   * @returns Sorted Array {@link DataSet}
+   *
+   * @example
+   * ```ts
+   * const sortedArray = new SortedArray([5, 2]);
+   * sortedArray.add(3); // returns [2,3,5]
+   * ```
+   *
+   * @public
    */
-  add(item: DataItem): void {
+  add(item: DataItem): DataSet {
+    //TODO: Accept a single element or an array of elements.
     const d: DataItem[] = this.#data;
 
     d.push(item);
-    this.#sort();
+    return this.#sort();
   }
 
   /**
-   * Modify an existing element in the instance data.
+   * Modify an existing element in {@link SortedArray.#data}.
    *
-   * @param index - Post-sort array index of the data to update.
+   * @param index - **Sorted** index of the array to update.
    * @param item - The data to replace the instance entry at that index.
-   */
-  edit(index: number, item: DataItem): void {
-    this.#data[index] = item;
-    this.#sort();
-  }
-
-  /**
-   * Delete an element from the data.
+   * @returns Sorted array of {@link DataItem | DataItem}
    *
-   * @param index - The index of the sorted data to pull.
+   * @example
+   * ```ts
+   * const fruit = new SortedArray(['apples','pizza','bananas']);
+   * const output = fruit.edit(2, 'peaches'); // Index is the _sorted_ array index.
+   * console.log(output); // returns ['apples','bananas','peaches']
+   * ```
+   *
+   * @public
    */
-  delete(index: number): void {
-    this.#data.splice(index, 1);
+  edit(index: number, item: DataItem): DataSet {
+    this.#data[index] = item;
+    return this.#sort();
   }
 
   /**
-   * @returns The sorted instance data.
+   * Delete an element from the instance data.
+   *
+   * @param index - **Sorted** index of the array to delete.
+   * @returns Sorted Array {@link DataSet}
+   *
+   * @remarks
+   * This is a departure from the return value of `Array.prototype.splice()`, which returns an array of the _deleted_ elements. Here, we keep to the pattern and return the _new_ array.
+   *
+   * @example
+   * ```ts
+   * const fruit = new SortedArray(['banana', 'pineapple', 'cheese']);
+   * fruit.delete(1); //returns ['banana','pineapple'];
+   * ```
+   *
+   * @public
    */
-  get list(): DataSet {
+  delete(index: number): DataSet {
+    this.#data.splice(index, 1);
+    return this.log;
+  }
+
+  /**
+   * Getter to return the sorted data.
+   *
+   * @returns The sorted instance data.
+   *
+   * @example
+   * ```ts
+   * const fruit = new SortedArray(['banana', 'pineapple', 'apple']);
+   * fruit.log; //returns ['apple','banana','pineapple']
+   * ```
+   *
+   * @public
+   */
+  get log(): DataSet {
     return this.#data;
   }
 }
-
-export default SortedArray;
