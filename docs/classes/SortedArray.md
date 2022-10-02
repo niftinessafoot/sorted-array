@@ -2,6 +2,16 @@
 
 # Class: SortedArray
 
+Maintains a sorted array of data.
+
+**`Example`**
+
+Instantiated with:
+```js
+import {SortedArray} from SortedArray;
+const arr = new SortedArray();
+```
+
 ## Table of contents
 
 ### Constructors
@@ -42,7 +52,7 @@ Define initial data, sort algo, and perform initial sort.
 
 #### Defined in
 
-index.ts:83
+index.ts:87
 
 ## Properties
 
@@ -54,7 +64,7 @@ Default settings.
 
 #### Defined in
 
-index.ts:48
+index.ts:52
 
 ___
 
@@ -66,7 +76,7 @@ Instance state. Source of truth for the module.
 
 #### Defined in
 
-index.ts:44
+index.ts:48
 
 ___
 
@@ -78,7 +88,7 @@ Overrides default sorting algorithm.
 
 #### Defined in
 
-index.ts:46
+index.ts:50
 
 ## Accessors
 
@@ -103,7 +113,7 @@ The sorted instance data.
 
 #### Defined in
 
-index.ts:178
+index.ts:182
 
 ## Methods
 
@@ -128,7 +138,7 @@ One of `[0.1,-1]` to determine sort order.
 
 #### Defined in
 
-index.ts:61
+index.ts:65
 
 ___
 
@@ -146,7 +156,7 @@ Sorted Data [DataSet](../modules.md#dataset)
 
 #### Defined in
 
-index.ts:74
+index.ts:78
 
 ___
 
@@ -177,7 +187,7 @@ Sorted Array [DataSet](../modules.md#dataset)
 
 #### Defined in
 
-index.ts:114
+index.ts:118
 
 ___
 
@@ -212,7 +222,7 @@ Sorted Array [DataSet](../modules.md#dataset)
 
 #### Defined in
 
-index.ts:160
+index.ts:164
 
 ___
 
@@ -245,4 +255,4 @@ Sorted array of [DataItem](../modules.md#dataitem)
 
 #### Defined in
 
-index.ts:138
+index.ts:142

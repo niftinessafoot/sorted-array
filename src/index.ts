@@ -34,7 +34,11 @@ export interface SortedArrayConfig {
 /**
  * Maintains a sorted array of data.
  *
- * @packageDocumentation
+ * @example Instantiated with:
+ * ```js
+ * import {SortedArray} from SortedArray;
+ * const arr = new SortedArray();
+ * ```
  */
 export class SortedArray {
   // TODO: Add reset/replace functionality.

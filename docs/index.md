@@ -6,7 +6,7 @@ A configurable JavaScript module to maintain a sorted, private array.
 
 ## installation
 
-_Sorted Array_ can be used as an [https://www.npmjs.com/package/@afoot/sorted-array](npm package) or download the package and use it as an ESM module right in the browser.
+_Sorted Array_ can be used as an [npm package](https://www.npmjs.com/package/@afoot/sorted-array) or download the package and use it as an ESM module right in the browser.
 
 ## documentation
 
@@ -17,7 +17,7 @@ View full documentation and examples at [https://niftinessafoot.github.io/sorted
 _Sorted Array_ takes either an array of existing data or a config object.
 
 ```js
-import SortedArray from '@afoot/sorted-array/';
+import { SortedArray } from '@afoot/sorted-array/';
 
 const sortedArray = new SortedArray([5, 2, 3]);
 
@@ -27,7 +27,7 @@ sortedArray.log; // returns [2,3,5]
 You can `add`, `edit`, and `delete` from the instance.
 
 ```js
-import SortedArray from '@afoot/sorted-array/';
+import { SortedArray } from '@afoot/sorted-array/';
 
 const sortedArray = new SortedArray([5, 2, 3]);
 sortedArray.add('1');
